@@ -4,38 +4,21 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-    // let map = new MAP();
-    // for(let i = 0; i < nums.length; i++)
-    // {
-    //     map.set(nums[i],i);
-    // }
-    // let output = [];
-    // for(let i = 0; i < nums.length; i++){
-    //     if(map.has(target- num[i]) && map.get(target- num[i]) !== i)
-    //     {
-    //         output[0] = i;
-    //         output[1] =  map.get(target- num[i]);
-    //     }
-    // }
-    // return  output;
-
- 
-
-   
-    for(let i = 0 ; i < nums.length; i++){
-        let out = target - nums[i]
-        console.log(out)
-        let indexOfOut = nums.indexOf(out, i + 1);
-        console.log(indexOfOut)
-        if (indexOfOut !== -1) {
-            let output = []
-            output.push(i)
-            output.push(indexOfOut)
-            return output
+    let out = [];
+    for (let i = 0; i < nums.length; i++)
+    {
+        let find = target - nums[i]
+        console.log(find)
+        if(nums.indexOf(find,i+1) != (-1))
+        {
+            console.log("index" + nums.indexOf(find,i+1))
+            out.push(i)
+            out.push(nums.indexOf(find,i+1))
+            return out
         }
     }
 };
-let nums = [3,2,4]
+let nums = [3,3]
 let target = 6
 
 console.log(twoSum(nums,target))
