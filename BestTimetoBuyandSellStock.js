@@ -22,18 +22,21 @@
  * @return {number}
  */
 var maxProfit = function(prices) {
-    let buy = Infinity  
+    let buy = 99999999;
     let sell = 0;
-    for (let i = 0; i < prices.length; i ++){
-        if (buy > prices[i])
+    for(let i = 0; i < prices.length;i++)
+    {
+        console.log(prices[i])
+        if(buy > prices[i])
         {
             buy = prices[i]
         }
-     else if ((prices[i] - buy > sell) || (sell == 0 )){
-         sell = (prices[i] - buy)
-     }
+        else if ((prices[i] > buy) || (sell == 0)){
+            sell = prices[i]
+        }
+
     }
-  
-   
-     return sell
+    console.log(buy)
+    console.log(sell)
  };
+ console.log(maxProfit(7,1,5,3,6,4))
