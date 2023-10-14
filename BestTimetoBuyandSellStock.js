@@ -26,7 +26,7 @@ var maxProfit = function(prices) {
     let sell = 0;
     for(let i = 0; i < prices.length;i++)
     {
-        console.log(prices[i])
+        
         if(buy > prices[i])
         {
             buy = prices[i]
