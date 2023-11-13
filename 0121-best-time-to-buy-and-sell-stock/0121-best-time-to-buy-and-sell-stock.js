@@ -2,30 +2,28 @@
  * @param {number[]} prices
  * @return {number}
  */
-// buyStockDate 
-// StockValueBuy
-// StockValueBuy the less value => price < StockValueBuy =>  StockValueBuy = price
-// profit = pricesMax - StockValueBuy
-// => profit date
+
+//buyValue = lowest value in the array
+//maxProfit =in the loop differece to the buy date
+//returnprofit
+//profit = maxProfit - buyValue
 var maxProfit = function(prices) {
-    let buyStockDate = 0;
-    let StockValueBuy = 999999999
-    let profit = 0
-    for(let i = 0 ; i < prices.length; i++)
+    let buyValue = prices[0];
+    let returnProfit = 0
+    
+    for(let i = 0; i <prices.length; i++) 
         {
-            if(prices[i] < StockValueBuy)
-                {
-                    StockValueBuy = prices[i]
-                    
-                }
-            else{
-                if(profit < (prices[i] - StockValueBuy))
-                 {
-                    profit = prices[i] - StockValueBuy
-                     console.log(profit)
-                    
-                }
+            if(prices[i] < buyValue)
+            {
+                buyValue = prices[i]
             }
+            else{
+                if ((returnProfit < prices[i]-buyValue))
+                    {
+                        returnProfit = prices[i]-buyValue
+                    }
+            }
+            
         }
-    return profit
+    return returnProfit
 };
