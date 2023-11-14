@@ -8,20 +8,14 @@
 var isPalindrome = function(x) {
     let outPut = true
     let xString = x.toString()
-     
-    const arr = []
-    
-    
+    let p2 = xString.length-1
+        
+            
     for(let i = 0; i < xString.length; i++)
-        {
-            arr.push(xString[i])
-        }
-    let p2 = arr.length-1
-    for(let i = 0; i < arr.length; i++)
         {
             console.log("i="+xString[i])
             console.log(p2)
-            if(arr[i] == arr[p2])
+            if(xString[i] == xString[p2])
                 {
                     p2--
                 }
