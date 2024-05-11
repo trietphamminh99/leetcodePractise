@@ -3,17 +3,19 @@
  * @return {boolean}
  */
 var isPalindrome = function(x) {
-    
-    let arr = String(x).split('');
-    let R = arr.length-1;
-
-    for (let i = 0 ; i < arr.length; i++)
+ let x1 =  String(x).split('');
+ let L = 0; 
+ let R = x1.length-1;
+    while (L < R)
         {
-            if(arr[i] != arr[R])
+            console.log(x1[R])
+            if(x1[L] != x1[R])
                 {
                     return false
                 }
-            R--
+            L++;
+            R--;
         }
     return true
+
 };
