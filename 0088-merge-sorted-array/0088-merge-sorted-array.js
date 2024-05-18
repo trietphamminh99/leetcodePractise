@@ -11,8 +11,7 @@ var merge = function(nums1, m, nums2, n) {
     let i = m+n-1
     while(p1 >=0 && p2 >=0)
         {
-            console.log(nums1[p1])
-            console.log(nums2[p2])
+            
             if(nums2[p2] > nums1[p1])
                 {
                     nums1[i] = nums2[p2]
