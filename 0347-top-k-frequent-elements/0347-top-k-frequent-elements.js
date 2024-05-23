@@ -28,14 +28,14 @@ var topKFrequent = function(nums, k) {
                 }
             cnt++;
         }
-    console.log(map)
+    
     for(let i = nums.length; i >=0 ; i--)
         {
             if(map.has(i))
                 {
                     if(k > 0){
                         let temp = Array.from(map.get(i))
-                        console.log(temp)
+                        
                         for (let j = 0; j < temp.length;j++)
                              {
                                  console.log(temp[j])
