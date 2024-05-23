@@ -8,31 +8,34 @@ var productExceptSelf = function(nums) {
     //profix = [24,12,4,1]
     
     //prefix
-    let pre = 1;
-    let prefix = [1]
+    
+    let prefix = [];
+     prefix[0] = 1
     for (let i = 1; i < nums.length; i++)
     {
-       pre = nums[i-1] * pre
-       prefix[i] = pre 
+       prefix[i] = nums[i-1] * prefix[i-1] 
     }
-    //profix
-    let pro = 1;
-    let profix = [1]
-    for (let i = nums.length-1; i >= 0; i--)
+   
+    
+    let suffix = [];
+    let suf = 1
+    for (let i = nums.length-1; i >0;i--)
     {
-        if (i == nums.length-1)
-        {
-            profix[i] = 1
-        }
-        else{
-            pro = nums[i+1] * pro
-            profix[i] = pro 
-        }
+       if (i == nums.length-1)
+           {
+             suffix.push(suf)
+           }
         
+       let temp =  nums[i] * suf
+       suffix.unshift(temp)
+       suf = temp
     }
-    let out=[]
-    for (let i = 0; i < nums.length; i++){
-        out[i] = prefix[i]*profix[i]
-    }
+   
+    let out = []
+    for (let i = 0 ; i < nums.length; i++)
+        {
+            let temp = suffix[i] * prefix[i]
+            out.push(temp)
+        }
     return out
 };
