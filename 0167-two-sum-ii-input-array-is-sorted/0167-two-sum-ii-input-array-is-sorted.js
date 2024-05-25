@@ -4,24 +4,24 @@
  * @return {number[]}
  */
 var twoSum = function(numbers, target) {
-    
-    let R = numbers.length-1;
-    let L = 0;
-    while(R > L)
+    let l = 0; 
+    let r = numbers.length -1
+    while ( l < r)
         {
-            console.log("R ="+ numbers[R])
-            console.log("L ="+ numbers[L])
-            if(numbers[L] + numbers[R] > target)
+            if(numbers[r] + numbers[l] == target)
                 {
-                    R--
-                }
-            else if(numbers[L] + numbers[R] < target)
+                    let out = [l+1,r+1]
+                    
+                    return out
+                }             
+            else if(numbers[r] + numbers [l] > target)
                 {
-                    L++
+                    r--
                 }
-            else{
-                let out = [L+1,R+1] 
-                return out
-            }
+            else if (numbers[r] + numbers [l] < target)
+                {
+                    l++
+                }
+
         }
 };
