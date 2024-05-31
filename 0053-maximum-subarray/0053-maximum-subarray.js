@@ -3,21 +3,23 @@
  * @return {number}
  */
 var maxSubArray = function(nums) {
+     let sum = 0
     let max = -9999999;
-    let cur = 0;
-    for(let i = 0 ; i < nums.length; i++)
+    for (let i = 0 ; i < nums.length ; i++)
         {
-            cur = nums[i] + cur
-            if (cur > max)
+            sum += nums[i];   
+              if (max < sum)
                 {
-                    max = cur;
+                    max = sum
                 }
-            if (cur < 0)
+            if (sum < 0)
                 {
-                    cur = 0
+                    sum = 0
                 }
+          
+                
         }
-   
     return max
-       
+    
+    
 };
