@@ -4,17 +4,16 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-    let out = []
-    for (let i = 0; i < nums.length; i++)
+    let map = new Map();
+    for(let i = 0 ; i < nums.length; i ++)
         {
-            let find = target - nums[i];
-            let val  = nums.indexOf(find,i+1)
-           if (val != -1 && val != i)
-               {
-                 out.push(i);
-                 out.push(val)
-                   return out
-               }
-               
+            map.set(nums[i],i)
         }
+    for(let i = 0 ; i < nums.length; i ++){
+        if (map.get(target - nums[i]) && i != map.get(target - nums[i]))
+            {
+                let out = [i,map.get(target - nums[i])]
+                return out
+            }
+    }
 };
