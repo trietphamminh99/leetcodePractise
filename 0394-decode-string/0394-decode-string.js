@@ -8,7 +8,7 @@ var decodeString = function(s) {
     
     while (i < s.length)
         {
-           console.log(s[i])
+           
             if (s[i] != "]")
                 {
                    stack.push(s[i]);
@@ -18,7 +18,7 @@ var decodeString = function(s) {
             else{
                 
                 
-                console.log("run else ")
+                
                 let ds = "";
                 let num = "";
                 let k = stack.length-1
@@ -37,8 +37,7 @@ var decodeString = function(s) {
                     }
                 k = k-1
                 stack.pop()
-                console.log(ds)
-                console.log(stack)
+                
                 while ( k >=0 && stack[k] != "[")
                     {
                         if (!isNaN(parseInt(stack[k]))){
@@ -47,13 +46,12 @@ var decodeString = function(s) {
                         }
                         k--
                     }
-                console.log(stack)
-                console.log(parseInt(num))
+            
                 for (let i = 0; i < parseInt(num); i++)
                     {
                         stack.push(ds)
                     }
-                console.log(stack)
+                
                 i++
                 
             }      
