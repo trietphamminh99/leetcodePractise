@@ -11,7 +11,7 @@ var minEatingSpeed = function(piles, h) {
         {
             
             let m = l + Math.floor((r-l)/2)
-            console.log("m: " + m)
+            
             let curVal = 0;
             let i = 0
             while (i < piles.length)
