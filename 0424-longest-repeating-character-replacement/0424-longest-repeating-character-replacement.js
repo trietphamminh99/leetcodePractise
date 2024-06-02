@@ -4,37 +4,23 @@
  * @return {number}
  */
 var characterReplacement = function(s, k) {
-    let maxs = 0;
-    let map = new Map();
     let l = 0;
-    let r = 0;
-    while (r < s.length)
+    let out = 0;
+    let map = new Map()
+    
+    for (let r = 0; r < s.length;r++)
         {
-            if(!map.get(s[r]))
+            map.set(s[r], map.get(s[r])+1 || 1)
+            let wl = r - l + 1;
+            let maxCurChar = Math.max(...map.values())
+            if (wl - maxCurChar <= k)
                 {
-                    map.set(s[r],1)
+                    max = Math.max(out,wl)
                 }
             else{
-                let temp = map.get(s[r])
-                temp +=1
-                map.set(s[r],temp)
-            }
-            let wl = r-l+1
-            let maxcur = Math.max(...Array.from(map.values()))
-            if(wl - maxcur <= k)
-                {
-                    if (maxs < wl)
-                        {
-                            maxs = wl
-                        }
-                }
-            else{
-                 let temp = map.get(s[l])
-                temp -=1
-                map.set(s[l],temp)
+                map.set(s[l], map.get(s[l]) - 1)
                 l++
             }
-            r++
         }
-    return maxs
+    return max
 };
