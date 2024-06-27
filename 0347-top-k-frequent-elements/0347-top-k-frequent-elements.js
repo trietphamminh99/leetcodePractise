@@ -4,50 +4,35 @@
  * @return {number[]}
  */
 var topKFrequent = function(nums, k) {
-    let map = new Map();
-    let cnt = 0 ;
-    let cur = nums[0]
-    let out = []
-    nums.sort((a,b) => (a-b))
-    if (nums.length == 1)
-    {
-        out.push(1)
-        return out
-    }
-    for (let i = 0 ; i <= nums.length; i++)
-        {
-            if (nums[i] != cur)
-                {
-                    if(!map.has(cnt))
-                        {
-                            map.set(cnt,[])
-                        }
-                    map.get(cnt).push(cur)
-                    cur = nums[i]
-                    cnt = 0
-                }
-            cnt++;
-        }
+    const map = new Map()
     
-    for(let i = nums.length; i >=0 ; i--)
+    for (let i in nums)
         {
-            if(map.has(i))
+            if(!map.has(nums[i]))
                 {
-                    if(k > 0){
-                        let temp = Array.from(map.get(i))
-                        
-                        for (let j = 0; j < temp.length;j++)
-                             {
-                                 console.log(temp[j])
-                                if(k >0)
-                                    {
-                                        out.push(temp[j])
-                                        k--                                
-                                    }
-                                
-                             }
-                    }
+                    map.set(nums[i],1)
+                }
+            else{
+                    map.set(nums[i], map.get(nums[i]) +1)
+            }
+        }
+    const arr = Array.from(map.values()).sort((a,b) => a-b)
+    let res = [];
+    
+    for (let i = arr.length-1; i >= 0 ; i --)
+        {
+            
+            for(let key of map.keys())
+                {
+                   
+                    if(map.get(key) == arr[i] && !res.includes(key))
+                        {
+                            res.push(key)
+                        }
+                    if(res.length == k)
+                        {
+                            return res;
+                        }
                 }
         }
-    return out
 };
