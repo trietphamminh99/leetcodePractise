@@ -10,7 +10,7 @@ var searchRange = function(nums, target) {
     let lIndex = -1;
     while (l <= r)
         {
-            console.log(nums[l])
+            
             if (nums[l] == target && nums[r] == target)
                 {
                     fIndex = l;
